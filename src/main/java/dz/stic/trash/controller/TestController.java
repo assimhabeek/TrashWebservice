@@ -20,7 +20,7 @@ public class TestController {
     }
 
     @GetMapping("/{id}")
-    public Admin findAll(@PathVariable Integer id) {
+    public Admin findById(@PathVariable Integer id) {
         return adminDAO.findById(id);
     }
 
