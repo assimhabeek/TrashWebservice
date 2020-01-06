@@ -1,14 +1,12 @@
 package dz.stic.trash;
 
 import dz.stic.trash.doa.AdminDAO;
-import dz.stic.trash.model.Admin;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfiguration;
 
-@SpringBootApplication
-
+@SpringBootApplication(exclude = HibernateJpaAutoConfiguration.class)
 public class TrashApplication /*implements CommandLineRunner */ {
 
     @Autowired
