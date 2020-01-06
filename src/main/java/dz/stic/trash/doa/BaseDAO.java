@@ -9,11 +9,9 @@ public abstract class BaseDAO<T> {
 
 
     private Class<T> tClass;
-    private String tableName;
 
-    public BaseDAO(Class<T> tClass, String tableName) {
+    public BaseDAO(Class<T> tClass) {
         this.tClass = tClass;
-        this.tableName = tableName;
     }
 
 
@@ -80,7 +78,7 @@ public abstract class BaseDAO<T> {
     @SuppressWarnings("unchecked")
     public List<T> findAll() {
         openCurrentSession();
-        List<T> list = (List<T>) getCurrentSession().createQuery(String.format("from %s", tableName)).list();
+        List<T> list = (List<T>) getCurrentSession().createQuery(String.format("from %s", tClass.getName())).list();
         closeCurrentSession();
         return list;
     }
@@ -88,7 +86,7 @@ public abstract class BaseDAO<T> {
     @SuppressWarnings("unchecked")
     public void deleteAll() {
         openCurrentSessionwithTransaction();
-        List<T> list = (List<T>) getCurrentSession().createQuery(String.format("from %s", tableName)).list();
+        List<T> list = (List<T>) getCurrentSession().createQuery(String.format("from %s", tClass.getName())).list();
         for (T entity : list) {
             currentSession.delete(entity);
         }

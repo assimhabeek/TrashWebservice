@@ -9,9 +9,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
 
-public class TrashApplication
-        // this is just for testing
-        /*implements CommandLineRunner */ {
+public class TrashApplication /*implements CommandLineRunner */ {
 
     @Autowired
     AdminDAO adminDAO;
@@ -21,7 +19,7 @@ public class TrashApplication
     }
 
 /*
-    the testing code
+//    the testing code
     @Override
     public void run(String... args) throws Exception {
 

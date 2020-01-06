@@ -15,7 +15,7 @@ public class AdminDAO extends BaseDAO<Admin> {
 
 
     public AdminDAO() {
-        super(Admin.class, "Admin");
+        super(Admin.class);
     }
 
     public Session openCurrentSession() {
